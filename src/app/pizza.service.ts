@@ -12,7 +12,10 @@ export class PizzaService {
 
   constructor(private httpclient: HttpClient) { }
 
-  public listPizzas(): Observable<Pizza[]> {
+  public listPizza(): Observable<Pizza[]> {
     return this.httpclient.get<Pizza[]>(this.URL + '/pizzas.json')
+  }
+  public getPizza(id: number): Observable<Pizza> {
+    return this.httpclient.get<Pizza>(this.URL + '/pizzas/'+id+'.json')
   }
 }
